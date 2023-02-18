@@ -5,4 +5,5 @@ public class Sector implements AbstractFigure {
     public boolean accept(FigureVisitor visitor) {
         return visitor.visit(this);
     }
+
 }

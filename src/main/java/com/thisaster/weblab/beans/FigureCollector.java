@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.stream.Stream;
 
 public class FigureCollector implements AbstractFigure, Serializable {
+
     AbstractFigure[] figures;
 
     public FigureCollector() {
@@ -19,8 +20,10 @@ public class FigureCollector implements AbstractFigure, Serializable {
                 new Rectangle()
         };
     }
+
     @Override
     public boolean accept(FigureVisitor visitor) {
         return Stream.of(figures).anyMatch(figure -> figure.accept(visitor));
     }
+    
 }

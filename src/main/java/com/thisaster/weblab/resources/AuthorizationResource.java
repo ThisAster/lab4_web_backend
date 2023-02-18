@@ -14,6 +14,7 @@ import java.util.Map;
 
 @Path("/authorize")
 public class AuthorizationResource {
+
     @EJB
     private ControllerBean controller;
 
@@ -29,4 +30,5 @@ public class AuthorizationResource {
                     .build();
         }
     }
+
 }

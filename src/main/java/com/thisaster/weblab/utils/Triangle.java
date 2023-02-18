@@ -6,4 +6,5 @@ public class Triangle implements AbstractFigure {
     public boolean accept(FigureVisitor visitor) {
         return visitor.visit(this);
     }
+
 }

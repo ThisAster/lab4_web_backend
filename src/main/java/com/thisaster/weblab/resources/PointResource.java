@@ -18,6 +18,7 @@ import java.util.Map;
 
 @Path("/points")
 public class PointResource {
+
     @EJB
     private ControllerBean controller;
 

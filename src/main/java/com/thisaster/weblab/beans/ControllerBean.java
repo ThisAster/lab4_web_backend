@@ -16,6 +16,7 @@ import java.util.ArrayList;
 @Singleton
 @TransactionManagement(value = TransactionManagementType.BEAN)
 public class ControllerBean {
+
     @EJB
     private PointAttemptService pointAttemptService;
     @EJB

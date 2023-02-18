@@ -16,9 +16,9 @@ import java.util.List;
 @Singleton
 @TransactionManagement(TransactionManagementType.BEAN)
 public class PointAttemptDB {
+
     @PersistenceContext(unitName = "postgres")
     private EntityManager em;
-
     @Resource
     private UserTransaction userTransaction;
 
@@ -44,4 +44,5 @@ public class PointAttemptDB {
         Query query = em.createQuery("select p from PointAttempt p");
         return query.getResultList();
     }
+
 }

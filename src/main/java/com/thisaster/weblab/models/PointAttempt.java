@@ -13,6 +13,7 @@ import lombok.*;
 @Entity
 @Table(name = "point_attempts")
 public class PointAttempt {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

@@ -18,6 +18,7 @@ import java.util.Map;
 @Path("/registration")
 @Singleton
 public class RegistrationResource {
+
     @EJB
     private ControllerBean controller;
 

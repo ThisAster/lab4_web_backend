@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 @Singleton
 public class UserService {
+
     @EJB
     private UserDB userDB;
 

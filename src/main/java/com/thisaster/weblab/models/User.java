@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 @EqualsAndHashCode
 public class User {
+
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)

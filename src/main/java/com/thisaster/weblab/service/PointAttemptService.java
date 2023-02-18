@@ -36,4 +36,5 @@ public class PointAttemptService {
     public ArrayList<PointAttempt> findAllAttempts() {
         return (ArrayList<PointAttempt>) pointAttemptDB.findAllAttemptsDB();
     }
+
 }

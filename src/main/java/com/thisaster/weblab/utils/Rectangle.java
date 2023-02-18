@@ -5,4 +5,5 @@ public class Rectangle implements AbstractFigure {
     public boolean accept(FigureVisitor visitor) {
         return visitor.visit(this);
     }
+
 }

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class JSONParser {
 
-
     public static String toJSON(ArrayList<PointAttempt> collection) {
         StringBuilder json = new StringBuilder();
         json.append("[\n");
@@ -33,4 +32,5 @@ public class JSONParser {
                 "       \"result\": \"" + lane.isSuccess() + "\"\n" +
                 "   }";
     }
+
 }
