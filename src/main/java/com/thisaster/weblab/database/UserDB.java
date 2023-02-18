@@ -35,37 +35,14 @@ public class UserDB {
     }
 
     public User findUserDB(String username) {
-        User user;
-        try {
-            user = (User) em.createQuery("select u from User u where u.username = :username")
-                    .setParameter("username", username).getResultList().stream().findFirst().orElse(null);;
-            return user;
-        } catch (NoResultException e) {
-            e.printStackTrace();
-            return null;
-        }
+        User user = (User) em.createQuery("select u from User u where u.username = :username")
+                    .setParameter("username", username).getResultList().stream().findFirst().orElse(null);
+        return user;
     }
-
-/*    public User findUserDB(String username) {
-        return em.find(User.class, username);
-    }*/
 
     public List<User> findAllUsersDB() {
         Query query = em.createQuery("select u from User u");
         return query.getResultList();
     }
 
-//    public boolean isExist(String username) {
-//        try {
-//            User user = (User) em.createQuery(" from User u where u.username = :username")
-//                    .setParameter("username", username).getSingleResult();
-//            if (user == null) {
-//                return false;
-//            } else {
-//                return true;
-//            }
-//        } catch (NoResultException e) {
-//            return false;
-//        }
-//    }
 }

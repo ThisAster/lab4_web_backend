@@ -18,8 +18,6 @@ public class PointAttemptService {
     private PointAttemptDB pointAttemptDB;
 
     public void saveAttempt(PointAttempt pointAttempt) throws Exception {
-
-
         pointAttemptDB.saveAttemptDB(pointAttempt);
     }
 

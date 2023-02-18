@@ -12,18 +12,6 @@ public class UserService {
     @EJB
     private UserDB userDB;
 
-//    public User createUser(String username, String password) {
-//        try {
-//            final User user = new User();
-//            user.setUsername(username);
-//            user.setPassword(password);
-//
-//            return user;
-//        } catch (PersistenceException e) {
-//            return null;
-//        }
-//    }
-
     public void saveUser(User user) throws Exception {
         userDB.saveUserDB(user);
     }

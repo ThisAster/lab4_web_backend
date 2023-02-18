@@ -46,12 +46,4 @@ public class RegistrationResource {
         }
     }
 
-    @POST
-    @Path("test")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void test(@FormParam("username") String username, @FormParam("password") String password) {
-        System.out.println("-----TEST-----");
-        System.out.println(username);
-        System.out.println(password);
-    }
 }

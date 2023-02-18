@@ -14,11 +14,13 @@ import java.io.Serializable;
 @LocalBean
 @Singleton
 public class Checker implements FigureVisitor, Serializable {
+
     private double x;
     private double y;
     private double r;
     @EJB
     private FigureCollector figureCollector;
+
     @Override
     public void setCoordinates(double x, double y, double r) {
         this.x = x;
