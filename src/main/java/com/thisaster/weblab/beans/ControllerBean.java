@@ -20,8 +20,8 @@ public class ControllerBean {
     private PointAttemptService pointAttemptService;
     @EJB
     private UserService userService;
-    @EJB
-    private Checker checker;
+    private final Checker checker = new Checker();
+    private final FigureCollector figureCollector = new FigureCollector();
 
     public PointAttempt createAttempt(Point point, String username) {
         final long start = System.nanoTime();
@@ -33,7 +33,7 @@ public class ControllerBean {
         pointAttempt.setR(point.r());
         pointAttempt.setAttemptTime(System.currentTimeMillis());
         pointAttempt.setProcessTime(System.nanoTime() - start);
-        pointAttempt.setSuccess(checker.checkHit(point.x(), point.y(), point.r()));
+        pointAttempt.setSuccess(checkHit(point.x(), point.y(), point.r()));
 
         return pointAttempt;
     }
@@ -60,6 +60,11 @@ public class ControllerBean {
             return user.getPassword().equals(password);
         }
         return false;
+    }
+
+    public boolean checkHit(double x, double y, double r){
+        checker.setCoordinates(x, y, r);
+        return figureCollector.accept(checker);
     }
 
 }

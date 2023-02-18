@@ -6,8 +6,6 @@ import jakarta.ejb.Singleton;
 import jakarta.ejb.TransactionManagement;
 import jakarta.ejb.TransactionManagementType;
 import jakarta.persistence.*;
-import jakarta.transaction.NotSupportedException;
-import jakarta.transaction.SystemException;
 import jakarta.transaction.UserTransaction;
 
 import java.util.List;
@@ -35,7 +33,8 @@ public class UserDB {
     }
 
     public User findUserDB(String username) {
-        User user = (User) em.createQuery("select u from User u where u.username = :username")
+        User user;
+        user = (User) em.createQuery("select u from User u where u.username = :username")
                     .setParameter("username", username).getResultList().stream().findFirst().orElse(null);
         return user;
     }

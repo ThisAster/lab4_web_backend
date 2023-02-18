@@ -4,22 +4,18 @@ import com.thisaster.weblab.utils.FigureVisitor;
 import com.thisaster.weblab.utils.Rectangle;
 import com.thisaster.weblab.utils.Sector;
 import com.thisaster.weblab.utils.Triangle;
-import jakarta.ejb.EJB;
-import jakarta.ejb.LocalBean;
-import jakarta.ejb.Singleton;
-import jakarta.inject.Inject;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@LocalBean
-@Singleton
+@NoArgsConstructor
+@AllArgsConstructor
 public class Checker implements FigureVisitor, Serializable {
 
     private double x;
     private double y;
     private double r;
-    @EJB
-    private FigureCollector figureCollector;
 
     @Override
     public void setCoordinates(double x, double y, double r) {
@@ -47,11 +43,6 @@ public class Checker implements FigureVisitor, Serializable {
     @Override
     public boolean visit(FigureCollector figureCollector) {
         return true;
-    }
-
-    public boolean checkHit(double x, double y, double r){
-        this.setCoordinates(x, y, r);
-        return figureCollector.accept(this);
     }
 
 }
