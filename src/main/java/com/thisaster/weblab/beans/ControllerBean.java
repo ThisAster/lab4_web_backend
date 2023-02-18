@@ -21,8 +21,10 @@ public class ControllerBean {
     private PointAttemptService pointAttemptService;
     @EJB
     private UserService userService;
-    private final Checker checker = new Checker();
-    private final FigureCollector figureCollector = new FigureCollector();
+    @EJB
+    private Checker checker;
+    @EJB
+    private FigureCollector figureCollector;
 
     public PointAttempt createAttempt(Point point, String username) {
         final long start = System.nanoTime();

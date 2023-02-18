@@ -4,13 +4,13 @@ import com.thisaster.weblab.utils.FigureVisitor;
 import com.thisaster.weblab.utils.Rectangle;
 import com.thisaster.weblab.utils.Sector;
 import com.thisaster.weblab.utils.Triangle;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.ejb.LocalBean;
+import jakarta.ejb.Singleton;
 
 import java.io.Serializable;
 
-@NoArgsConstructor
-@AllArgsConstructor
+@LocalBean
+@Singleton
 public class Checker implements FigureVisitor, Serializable {
 
     private double x;
