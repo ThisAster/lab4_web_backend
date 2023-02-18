@@ -22,9 +22,6 @@ public class RegistrationResource {
     private ControllerBean controller;
 
     @POST
-/*    @Consumes({MediaType.APPLICATION_JSON})
-    @Produces({MediaType.APPLICATION_JSON})*/
-    @Path("add")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response registration(Map<String, String> data) {
         ArrayList<PointAttempt> result = new ArrayList<>();
