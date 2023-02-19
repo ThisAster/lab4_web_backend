@@ -39,6 +39,7 @@ public class PointResource {
                 controller.addAttempt(pointAttempt);
                 result.add(pointAttempt);
                 return Response.ok()
+                        .type(MediaType.APPLICATION_JSON_TYPE)
                         .entity(JSONParser.toJSON(result))
                         .build();
             } catch (Exception e) {
@@ -60,6 +61,7 @@ public class PointResource {
     public Response getAllAttempts(Map<String, String> data) {
         if (controller.isRegistered(data.get("username"), Hashing.sha256().hashString(data.get("password"), StandardCharsets.UTF_8).toString())) {
             return Response.ok()
+                    .type(MediaType.APPLICATION_JSON_TYPE)
                     .entity(JSONParser.toJSON(controller.getAttempts(data.get("username"))))
                     .build();
         } else {

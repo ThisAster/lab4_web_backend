@@ -26,10 +26,7 @@ public class PointAttemptService {
 
     public List<PointAttempt> findByUser(User user) {
         List<PointAttempt> attemptsStorage = pointAttemptDB.findAttemptByUserDB(user);
-        if (attemptsStorage != null) {
-            return pointAttemptDB.findAllAttemptsDB();
-        }
-        return new ArrayList<>();
+        return attemptsStorage;
     }
 
     public ArrayList<PointAttempt> findAllAttempts() {
