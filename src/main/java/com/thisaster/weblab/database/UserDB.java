@@ -1,6 +1,7 @@
 package com.thisaster.weblab.database;
 
 import com.thisaster.weblab.models.User;
+
 import jakarta.annotation.Resource;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.TransactionManagement;

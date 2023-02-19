@@ -1,10 +1,9 @@
 package com.thisaster.weblab.service;
 
-import com.thisaster.weblab.beans.Checker;
 import com.thisaster.weblab.database.PointAttemptDB;
-import com.thisaster.weblab.models.Point;
 import com.thisaster.weblab.models.PointAttempt;
 import com.thisaster.weblab.models.User;
+
 import jakarta.ejb.EJB;
 import jakarta.ejb.Singleton;
 

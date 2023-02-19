@@ -1,13 +1,17 @@
 package com.thisaster.weblab.resources;
 
 import com.google.common.hash.Hashing;
+
 import com.thisaster.weblab.beans.ControllerBean;
 import com.thisaster.weblab.models.PointAttempt;
 import com.thisaster.weblab.models.User;
 import com.thisaster.weblab.utils.JSONParser;
+
 import jakarta.ejb.EJB;
 import jakarta.ejb.Singleton;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 

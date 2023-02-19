@@ -2,6 +2,7 @@ package com.thisaster.weblab.service;
 
 import com.thisaster.weblab.database.UserDB;
 import com.thisaster.weblab.models.User;
+
 import jakarta.ejb.EJB;
 import jakarta.ejb.Singleton;
 

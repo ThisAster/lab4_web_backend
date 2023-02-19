@@ -4,6 +4,7 @@ import com.thisaster.weblab.utils.FigureVisitor;
 import com.thisaster.weblab.utils.Rectangle;
 import com.thisaster.weblab.utils.Sector;
 import com.thisaster.weblab.utils.Triangle;
+
 import jakarta.ejb.LocalBean;
 import jakarta.ejb.Singleton;
 
