@@ -16,7 +16,6 @@ public class UserDB {
 
     @PersistenceContext(name="postgres")
     private EntityManager em;
-
     @Resource
     private UserTransaction userTransaction;
 

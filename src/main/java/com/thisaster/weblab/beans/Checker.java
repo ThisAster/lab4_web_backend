@@ -27,17 +27,17 @@ public class Checker implements FigureVisitor, Serializable {
     @Override
     public boolean visit(Sector sector) {
         double rr = Math.sqrt(x*x + y*y);
-        return (x <= 0 && y <= 0 && rr <= r);
+        return x <= 0 && y <= 0 && rr <= r;
     }
 
     @Override
     public boolean visit(Rectangle rectangle) {
-        return ((x>=0 && y<=r) && (y>=0 && (y <= - r/2)));
+        return x>=0 && y>=0 && x<=r && y <= r/2;
     }
 
     @Override
     public boolean visit(Triangle triangle) {
-        return ((x >= 0 && y <= 0) && (y >= (x - r)));
+        return x >= 0 && y <= 0 && y >= (x - r);
     }
 
     @Override

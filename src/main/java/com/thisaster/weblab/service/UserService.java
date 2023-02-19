@@ -25,7 +25,7 @@ public class UserService {
         return userDB.findUserDB(username);
     }
 
-    public ArrayList<User> findAllUsers() throws Exception {
+    public ArrayList<User> findAllUsers() {
         return (ArrayList<User>) userDB.findAllUsersDB();
     }
 
