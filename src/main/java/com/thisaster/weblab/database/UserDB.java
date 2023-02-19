@@ -6,7 +6,9 @@ import jakarta.annotation.Resource;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.TransactionManagement;
 import jakarta.ejb.TransactionManagementType;
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.transaction.UserTransaction;
 
 import java.util.List;
