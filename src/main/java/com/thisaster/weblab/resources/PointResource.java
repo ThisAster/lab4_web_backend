@@ -78,7 +78,9 @@ public class PointResource {
     public Response clearAllAttempts(Map<String, String> data) throws Exception {
         if (controller.isRegistered(data.get("username"), Hashing.sha256().hashString(data.get("password"), StandardCharsets.UTF_8).toString())) {
             controller.reset(data.get("username"));
-            return Response.ok().entity("Clear successful").build();
+            return Response.ok()
+                    .entity("Clear successful")
+                    .build();
         } else {
             return Response.status(403)
                     .entity("User is not confirmed")
