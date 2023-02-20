@@ -35,7 +35,7 @@ public class PointAttemptDB {
         userTransaction.commit();
     }
 
-    public Integer clearAttemptsDB(User user) throws Exception {
+    public Integer clearAttemptsByUserDB(User user) throws Exception {
         String sqlText = "delete from PointAttempt p where p.user = :user";
         String sqlParamText = "user";
 
@@ -56,7 +56,7 @@ public class PointAttemptDB {
         Query query = em.createQuery(sqlText, PointAttempt.class)
                 .setParameter(sqlParamText, user)
                 .setFirstResult(skip)
-                .setMaxResults(9);
+                .setMaxResults(3);
 
         return query.getResultList();
     }

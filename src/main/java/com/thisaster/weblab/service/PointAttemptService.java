@@ -33,8 +33,8 @@ public class PointAttemptService {
         return (ArrayList<PointAttempt>) pointAttemptDB.findAllAttemptsDB();
     }
 
-    public int resetAttempts(User user) throws Exception {
-        return pointAttemptDB.clearAttemptsDB(user);
+    public int resetAttemptsByUser(User user) throws Exception {
+        return pointAttemptDB.clearAttemptsByUserDB(user);
     }
 
 }

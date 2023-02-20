@@ -72,7 +72,7 @@ public class ControllerBean {
 
     public int reset(String username) throws Exception {
         User user = this.userService.findByUsername(username);
-        return pointAttemptService.resetAttempts(user);
+        return pointAttemptService.resetAttemptsByUser(user);
     }
 
 }
