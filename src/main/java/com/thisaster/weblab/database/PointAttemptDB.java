@@ -35,6 +35,15 @@ public class PointAttemptDB {
         userTransaction.commit();
     }
 
+    public Integer resetDB(User user) throws Exception{
+        userTransaction.begin();
+        Query query = em.createQuery("delete from PointAttempt p where p.user = :user")
+                .setParameter("user", user);
+        Integer deletedCount =  query.executeUpdate();
+        userTransaction.commit();
+        return deletedCount;
+    }
+
     public List<PointAttempt> findAttemptByUserDB(User user, int skip) {
         Query query = em.createQuery("select p from PointAttempt p where p.user = :user", PointAttempt.class)
                 .setParameter("user", user).setFirstResult(skip).setMaxResults(3);
