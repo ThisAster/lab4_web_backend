@@ -9,6 +9,7 @@ import com.thisaster.weblab.utils.JSONParser;
 
 import jakarta.ejb.EJB;
 import jakarta.ejb.Singleton;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -34,7 +35,7 @@ public class RegistrationResource {
         user.setUsername(data.get("username"));
         user.setPassword(Hashing.sha256().hashString(data.get("password"), StandardCharsets.UTF_8).toString());
         if (controller.isRegistered(user.getUsername(), user.getPassword())) {
-            return Response.status(403)
+            return Response.status(HttpServletResponse.SC_FORBIDDEN)
                     .entity("User already exists")
                     .build();
         }

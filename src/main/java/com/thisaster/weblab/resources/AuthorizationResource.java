@@ -5,6 +5,7 @@ import com.google.common.hash.Hashing;
 import com.thisaster.weblab.beans.ControllerBean;
 
 import jakarta.ejb.EJB;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -27,7 +28,7 @@ public class AuthorizationResource {
             return Response.ok()
                     .build();
         } else {
-            return Response.status(403)
+            return Response.status(HttpServletResponse.SC_FORBIDDEN)
                     .entity("Authorization failed")
                     .build();
         }

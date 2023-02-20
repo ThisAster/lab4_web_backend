@@ -8,6 +8,7 @@ import com.thisaster.weblab.models.PointAttempt;
 import com.thisaster.weblab.utils.JSONParser;
 
 import jakarta.ejb.EJB;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -49,7 +50,7 @@ public class PointResource {
                         .build();
             }
         } else {
-            return Response.status(403)
+            return Response.status(HttpServletResponse.SC_FORBIDDEN)
                     .entity("User is not confirmed")
                     .build();
         }
@@ -66,7 +67,7 @@ public class PointResource {
                     .entity(JSONParser.toJSON(controller.getAttempts(data.get("username"), skip)))
                     .build();
         } else {
-            return Response.status(403)
+            return Response.status(HttpServletResponse.SC_FORBIDDEN)
                     .entity("User is not confirmed")
                     .build();
         }
@@ -82,7 +83,7 @@ public class PointResource {
                     .entity("Clear successful")
                     .build();
         } else {
-            return Response.status(403)
+            return Response.status(HttpServletResponse.SC_FORBIDDEN)
                     .entity("User is not confirmed")
                     .build();
         }

@@ -35,23 +35,36 @@ public class PointAttemptDB {
         userTransaction.commit();
     }
 
-    public Integer resetDB(User user) throws Exception{
+    public Integer clearAttemptsDB(User user) throws Exception {
+        String sqlText = "delete from PointAttempt p where p.user = :user";
+        String sqlParamText = "user";
+
         userTransaction.begin();
-        Query query = em.createQuery("delete from PointAttempt p where p.user = :user")
-                .setParameter("user", user);
+        Query query = em.createQuery(sqlText)
+                .setParameter(sqlParamText, user);
+
         Integer deletedCount =  query.executeUpdate();
         userTransaction.commit();
+
         return deletedCount;
     }
 
     public List<PointAttempt> findAttemptByUserDB(User user, int skip) {
-        Query query = em.createQuery("select p from PointAttempt p where p.user = :user", PointAttempt.class)
-                .setParameter("user", user).setFirstResult(skip).setMaxResults(3);
+        String sqlText = "select p from PointAttempt p where p.user = :user";
+        String sqlParamText = "user";
+
+        Query query = em.createQuery(sqlText, PointAttempt.class)
+                .setParameter(sqlParamText, user)
+                .setFirstResult(skip)
+                .setMaxResults(9);
+
         return query.getResultList();
     }
 
     public List<PointAttempt> findAllAttemptsDB() {
-        Query query = em.createQuery("select p from PointAttempt p");
+        String sqlText = "select p from PointAttempt p";
+
+        Query query = em.createQuery(sqlText);
         return query.getResultList();
     }
 

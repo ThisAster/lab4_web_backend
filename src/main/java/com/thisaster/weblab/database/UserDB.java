@@ -36,13 +36,18 @@ public class UserDB {
 
     public User findUserDB(String username) {
         User user;
-        user = (User) em.createQuery("select u from User u where u.username = :username")
-                    .setParameter("username", username).getResultList().stream().findFirst().orElse(null);
+        String sqlText = "select u from User u where u.username = :username";
+        String sqlParamText = "username";
+
+        user = (User) em.createQuery(sqlText)
+                    .setParameter(sqlParamText, username).getResultList().stream().findFirst().orElse(null);
         return user;
     }
 
     public List<User> findAllUsersDB() {
-        Query query = em.createQuery("select u from User u");
+        String sqlText = "select u from User u";
+
+        Query query = em.createQuery(sqlText);
         return query.getResultList();
     }
 

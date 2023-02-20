@@ -53,7 +53,7 @@ public class ControllerBean {
         return (ArrayList<PointAttempt>) pointAttemptService.findByUser(userService.findByUsername(username), skip);
     }
 
-    public ArrayList<User> getUsers() throws Exception {
+    public ArrayList<User> getUsers() {
         return userService.findAllUsers();
     }
 

@@ -34,7 +34,7 @@ public class PointAttemptService {
     }
 
     public int resetAttempts(User user) throws Exception {
-        return pointAttemptDB.resetDB(user);
+        return pointAttemptDB.clearAttemptsDB(user);
     }
 
 }
