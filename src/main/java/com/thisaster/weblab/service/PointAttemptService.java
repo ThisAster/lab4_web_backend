@@ -24,8 +24,8 @@ public class PointAttemptService {
         pointAttemptDB.deleteAttemptDB(pointAttempt);
     }
 
-    public List<PointAttempt> findByUser(User user) {
-        List<PointAttempt> attemptsStorage = pointAttemptDB.findAttemptByUserDB(user);
+    public List<PointAttempt> findByUser(User user, int skip) {
+        List<PointAttempt> attemptsStorage = pointAttemptDB.findAttemptByUserDB(user, skip);
         return attemptsStorage;
     }
 

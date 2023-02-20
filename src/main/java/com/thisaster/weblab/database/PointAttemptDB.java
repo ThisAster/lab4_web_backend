@@ -35,9 +35,9 @@ public class PointAttemptDB {
         userTransaction.commit();
     }
 
-    public List<PointAttempt> findAttemptByUserDB(User user) {
+    public List<PointAttempt> findAttemptByUserDB(User user, int skip) {
         Query query = em.createQuery("select p from PointAttempt p where p.user = :user", PointAttempt.class)
-                .setParameter("user", user);
+                .setParameter("user", user).setFirstResult(skip).setMaxResults(3);
         return query.getResultList();
     }
 

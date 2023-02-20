@@ -49,8 +49,8 @@ public class ControllerBean {
         userService.saveUser(user);
     }
 
-    public ArrayList<PointAttempt> getAttempts(String username) {
-        return (ArrayList<PointAttempt>) pointAttemptService.findByUser(userService.findByUsername(username));
+    public ArrayList<PointAttempt> getAttempts(String username, int skip) {
+        return (ArrayList<PointAttempt>) pointAttemptService.findByUser(userService.findByUsername(username), skip);
     }
 
     public ArrayList<User> getUsers() throws Exception {

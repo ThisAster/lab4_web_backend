@@ -60,9 +60,10 @@ public class PointResource {
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response getAllAttempts(Map<String, String> data) {
         if (controller.isRegistered(data.get("username"), Hashing.sha256().hashString(data.get("password"), StandardCharsets.UTF_8).toString())) {
+            int skip = Integer.parseInt(data.get("skip"));
             return Response.ok()
                     .type(MediaType.APPLICATION_JSON_TYPE)
-                    .entity(JSONParser.toJSON(controller.getAttempts(data.get("username"))))
+                    .entity(JSONParser.toJSON(controller.getAttempts(data.get("username"), skip)))
                     .build();
         } else {
             return Response.status(403)
