@@ -30,20 +30,15 @@
             <version>3.1.0</version>
         </dependency>
         <dependency>
-            <groupId>jakarta.management.j2ee</groupId>
-            <artifactId>jakarta.management.j2ee-api</artifactId>
-            <version>1.1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.security.enterprise</groupId>
-            <artifactId>jakarta.security.enterprise-api</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.4</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
