@@ -1,8 +1,8 @@
-package com.thisaster.weblab.resources;
+package com.thisaster.weblab.controllers;
 
 import com.google.common.hash.Hashing;
 
-import com.thisaster.weblab.beans.ControllerBean;
+import com.thisaster.weblab.beans.ServiceBean;
 
 import jakarta.ejb.EJB;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,10 +16,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 @Path("/authorize")
-public class AuthorizationResource {
+public class AuthorizationController {
 
     @EJB
-    private ControllerBean controller;
+    private ServiceBean controller;
 
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)

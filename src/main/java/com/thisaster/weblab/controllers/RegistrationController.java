@@ -1,8 +1,8 @@
-package com.thisaster.weblab.resources;
+package com.thisaster.weblab.controllers;
 
 import com.google.common.hash.Hashing;
 
-import com.thisaster.weblab.beans.ControllerBean;
+import com.thisaster.weblab.beans.ServiceBean;
 import com.thisaster.weblab.models.PointAttempt;
 import com.thisaster.weblab.models.User;
 import com.thisaster.weblab.utils.JSONParser;
@@ -22,10 +22,10 @@ import java.util.Map;
 
 @Path("/registration")
 @Singleton
-public class RegistrationResource {
+public class RegistrationController {
 
     @EJB
-    private ControllerBean controller;
+    private ServiceBean serviceBean;
 
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -34,13 +34,13 @@ public class RegistrationResource {
         User user = new User();
         user.setUsername(data.get("username"));
         user.setPassword(Hashing.sha256().hashString(data.get("password"), StandardCharsets.UTF_8).toString());
-        if (controller.isRegistered(user.getUsername(), user.getPassword())) {
+        if (serviceBean.isRegistered(user.getUsername(), user.getPassword())) {
             return Response.status(HttpServletResponse.SC_FORBIDDEN)
                     .entity("User already exists")
                     .build();
         }
         try {
-            controller.addUser(user);
+            serviceBean.addUser(user);
             return Response.ok()
                     .entity(JSONParser.toJSON(result))
                     .build();
