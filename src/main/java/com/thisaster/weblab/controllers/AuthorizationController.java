@@ -19,12 +19,12 @@ import java.util.Map;
 public class AuthorizationController {
 
     @EJB
-    private ServiceBean controller;
+    private ServiceBean serviceBean;
 
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response authorize(Map<String, String> data) {
-        if (controller.isRegistered(data.get("username"), Hashing.sha256().hashString(data.get("password"), StandardCharsets.UTF_8).toString())) {
+        if (serviceBean.isRegistered(data.get("username"), Hashing.sha256().hashString(data.get("password"), StandardCharsets.UTF_8).toString())) {
             return Response.ok()
                     .build();
         } else {
