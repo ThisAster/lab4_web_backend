@@ -10,8 +10,8 @@ import jakarta.ejb.Singleton;
 
 import java.io.Serializable;
 
-@LocalBean
 @Singleton
+@LocalBean
 public class Checker implements FigureVisitor, Serializable {
 
     private double x;

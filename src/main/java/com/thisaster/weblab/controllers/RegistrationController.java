@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 @Path("/registration")
-@Singleton
 public class RegistrationController {
 
     @EJB
